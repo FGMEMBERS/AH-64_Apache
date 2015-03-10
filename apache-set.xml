@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+************************************************************************
+Eurocopter EC 665 "Tigre" simulation config.
+
+************************************************************************
+-->
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <description>Westland AH-64 Apache</description>
+    <author>StuartC </author>
+    <status>V1.8a</status>
+    <license>GPL v2</license>
+
+    <flight-model>yasim</flight-model>
+    <aero>tigre</aero>
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/AH-64_Apache/splash.png</splash-texture>
+    </startup> 
+
+    <sound>
+      <path>Aircraft/AH-64_Apache/Sounds/tigre-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/AH-64_Apache/Models/WAH-64_Apache.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+      <tigre>
+        <state type="int">0</state>
+        <engine type="float">0.0</engine>
+        <rotor-step-deg type="float">-1.0</rotor-step-deg>
+      </tigre>
+    </model>
+	
+	<submodels>
+	<serviceable type="bool">true</serviceable>
+	<path>Aircraft/AH-64_Apache/Models/Stores/submodels.xml</path>
+<path>Aircraft/AH-64_Apache/Models/Stores/loads.xml</path>
+    </submodels>
+	
+	
+
+	<systems>
+	 <electrical>
+      <path>Aircraft/Generic/generic-electrical.xml</path>
+    </electrical>
+
+     <autopilot>
+         <path>Aircraft/AH-64_Apache/System/autopilot5.xml</path>
+     </autopilot>
+
+    </systems>
+	
+	<hud>
+   <path n="1">Aircraft/AH-64_Apache/Hud/hud.xml</path>
+   <visibility n="1">true</visibility>
+   
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
+   
+  </hud>
+	
+	
+
+
+    <help>
+      <title>Tigre - background and help</title>
+      <line></line>
+      <key>
+        <name>{</name>
+        <desc>Start engines</desc>
+      </key>
+      <key>
+        <name>}</name>
+        <desc>Shutdown engines</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Toggle rotor brake</desc>
+      </key>
+      <key>
+        <name>r</name>
+        <desc>Apply rotor brake</desc>
+      </key>
+      <key>
+        <name>Ctrl d</name>
+        <desc>Togle S.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl e</name>
+        <desc>Togle C.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl f</name>
+        <desc>Auto hover</desc>
+      </key>
+    </help>
+	
+<!--	
+	
+<weight n="0">
+<name>pylon1.L</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+</weight>
+
+
+<weight n="1">
+<name>pylon2.L</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>CVR-7</name>
+<lbs>190</lbs>
+</opt>
+</weight>
+
+<weight n="2">
+<name>pylon3.L</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>CVR-7</name>
+<lbs>190</lbs>
+</opt>
+</weight>
+
+
+<weight n="3">
+<name>pylon3.R</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>CVR-7</name>
+<lbs>190</lbs>
+</opt>
+</weight>
+
+<weight n="4">
+<name>pylon2.R</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>CVR-7</name>
+<lbs>190</lbs>
+</opt>
+</weight>
+
+<weight n="5">
+<name>pylon1.R</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+
+</weight>
+
+-->
+	
+
+    <menubar include="Dialogs/tigre-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <engines>
+      <engine n="0">
+        <magnetos>0</magnetos>
+      </engine>
+      <engine n="1">
+        <magnetos>0</magnetos>
+      </engine>
+    </engines>
+    <gear>
+      <brake-parking>1</brake-parking>
+    </gear>
+    <rotor>
+      <reltarget>1</reltarget>
+      <maxreltorque>1</maxreltorque>
+    </rotor>
+  </controls>
+
+  <instrumentation>
+    <gsdi>
+      <serviceable type="bool">true</serviceable>
+      <enabled type="bool">true</enabled>
+    </gsdi>
+	 <illumination>
+   <settings>
+    <lcd-brightness-offset type="double">0.25</lcd-brightness-offset>
+    <led-brightness-offset type="double">0.25</led-brightness-offset>
+   </settings>
+   <lcd-brightness type="double">0.75</lcd-brightness>
+   <led-brightness type="double">0.75</led-brightness>
+   <master-brightness type="double">0.74</master-brightness>
+  </illumination>
+  
+  
+  <rwr>
+ <display-lighting-intens type="double">0.4</display-lighting-intens>
+ <symbology-lighting-intens type="double">1</symbology-lighting-intens>
+</rwr>
+
+<enav><selected type="int">3</selected></enav>
+ <radar>
+  <range type="int" archive="y">40</range>
+  <range-factor type="double" archive="n">0.001888</range-factor>
+  <minimized type="bool" archive="y">false</minimized>
+  <selected type="int">3</selected>
+
+      <!-- inicio en pruebas -->
+  <enabled type="bool">true</enabled>
+  <az-field type="double">120</az-field>
+  <range type="double">150</range>
+  <range-selected type="double">50</range-selected>
+  <radar2-range type="double">150</radar2-range>
+  <display-rdr type="bool">true</display-rdr>
+  <radar-standby type="int">3</radar-standby>
+<mode>
+  <rws type="bool">true</rws>
+  <tws-auto type="bool">false</tws-auto>
+</mode>
+
+</radar> 
+
+
+  <radar2>
+   <sweep-width-m type="double">0.0844</sweep-width-m>
+   <range-width-m type="double">0.0846</range-width-m>
+   <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
+   <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
+   <hud-radius-m type="double">0.071</hud-radius-m>
+  </radar2>
+
+   <radar-awg-9>
+	<ccm-mode-spl type="bool">false</ccm-mode-spl>
+	<ccm-mode-alt-dhf type="bool">false</ccm-mode-alt-dhf>
+	<ccm-mode-trs type="bool">false</ccm-mode-trs>
+	<display-rdr type="bool">true</display-rdr>
+	<display-ir type="bool">false</display-ir>
+	<display-iff type="bool">false</display-iff>
+	<mode type="string">PDS</mode> <!-- PDS, RWS, TWS, PDSTT, PSTT, VSL -->
+	<ant-trk-light type="bool">false</ant-trk-light>
+	<rd-rot-light type="bool">false</rd-rot-light>
+	<jat-light type="bool">false</jat-light>
+	<irot-light type="bool">false</irot-light>
+	</radar-awg-9>
+	
+<!--	
+ <transponder>
+  <standby type="bool">false</standby>
+  <interrogator-standby type="bool">false</interrogator-standby>
+  <modes>
+   <mode-1>
+    <interrogate type="bool">true</interrogate>
+	<respond type="bool">true</respond>
+	<code type="int">78</code>
+   </mode-1>
+   <mode-3A>
+    <interrogate type="bool">true</interrogate>
+	<respond type="bool">true</respond>
+	<code type="int">1001</code>
+   </mode-3A>
+   <mode-C>
+    <interrogate type="bool">true</interrogate>
+	<respond type="bool">true</respond>
+	<pressure-altitude type="int">0</pressure-altitude>
+   </mode-C>
+  </modes> 
+ </transponder>
+  -->
+<!--en pruebas fin -->
+
+ <MDEF>
+  <subsystem-selected type="string">aids</subsystem-selected>
+ </MDEF>
+    <magnetic-compass>
+       <bookmark-heading-deg type="double">43.0</bookmark-heading-deg>
+    </magnetic-compass>
+	<tacan>
+	 <power type="bool">1</power>
+	</tacan>
+  <warnings>
+   <warning-suppress type="bool">false</warning-suppress>
+   <attention-lights type="bool">false</attention-lights>
+   <signals>
+    <cat-1-warning type="bool">false</cat-1-warning>
+	<cat-2-warning type="bool">false</cat-2-warning> 
+	<cat-3-warning type="bool">false</cat-3-warning> 
+	<cat-4-warning type="bool">false</cat-4-warning>   
+   </signals>
+   <flags>
+    <gear-limit type="bool">true</gear-limit>
+   </flags>
+  </warnings>
+  
+  <efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">20</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+  </instrumentation>
+  
+  <systems>
+   
+   <weapons>
+    <cannon>
+	 <helmet-tracking type="bool">true</helmet-tracking>
+	 <rotation type="double">0</rotation>
+	 <elevation type="double">0</elevation>
+	</cannon>
+   </weapons>
+   
+  </systems>
+
+  <input>
+    <keyboard include="Nasal/tigre-keyboard.xml"/>
+  </input>
+
+  <rotors>
+    <main>
+      <rpm type="double">0</rpm>
+      <cone-deg type="double">0</cone-deg>
+      <cone1-deg type="double">0</cone1-deg>
+      <cone2-deg type="double">0</cone2-deg>
+      <cone3-deg type="double">0</cone3-deg>
+      <cone4-deg type="double">0</cone4-deg>
+    </main>
+  </rotors>
+
+  <environment>
+<turbulence>
+<use-cloud-turbulence>true</use-cloud-turbulence>
+</turbulence>
+</environment>
+  
+  
+  <nasal>
+    <tigre>
+      
+      <file>Aircraft/AH-64_Apache/Nasal/light.nas</file>
+      <file>Aircraft/AH-64_Apache/Nasal/tigre.nas</file>
+      <file>Aircraft/AH-64_Apache/Nasal/liveries.nas</file>
+      <file>Aircraft/AH-64_Apache/Nasal/bladevisible.nas</file>
+      <file>Aircraft/AH-64_Apache/Nasal/fcs-management.nas</file>
+
+      <file>Aircraft/Generic/helicopter-fcs.nas</file> 
+    </tigre>
+	 <terrain-map>
+ <file>Aircraft/AH-64_Apache/Nasal/terrain-map.nas</file>
+ </terrain-map>
+	<enav>
+			<file>Aircraft/AH-64_Apache/nasal/enav.nas</file>
+    	</enav>
+ 
+  </nasal>
+
+</PropertyList>
+

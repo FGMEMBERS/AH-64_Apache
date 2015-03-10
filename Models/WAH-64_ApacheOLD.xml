@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>apache3.ac</path>
+  
+   <!-- MP sound call -->
+  <sound><path>Aircraft/AH-64_Apache/Sounds/mp-sound.xml</path></sound>
+  
+<!--
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/AH-64_Apache/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+-->
+
+<nasal>
+  <load>
+      
+	  var self = cmdarg();
+
+      var float_10 = self.getNode("sim/multiplay/generic/float[10]", 1);
+      var float_11 = self.getNode("sim/multiplay/generic/float[11]", 1);
+      
+      var cannon_rotation = self.getNode("/systems/weapons/cannon/rotation", 1);
+      var cannon_elevation = self.getNode("/systems/weapons/cannon/elevation", 1);
+      cannon_rotation.alias(float_10);
+      cannon_elevation.alias(float_11);
+	  
+  </load>
+
+</nasal>
+
+
+ <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    
+<object-name>Mesh.072</object-name>
+<object-name>Mesh.073</object-name>
+<object-name>Mesh.071</object-name>
+    
+  </animation>
+  
+   <!-- Transparent Surfaces for Rembrandt rendering -->
+   <effect>
+       <inherits-from>Aircraft/AH-64_Apache/Models/Effects/glass</inherits-from>
+       <object-name>Mesh.072</object-name>
+       <object-name>Mesh.073</object-name>
+       <object-name>Mesh.071</object-name>
+	    <object-name>Mesh.039</object-name>
+		 <object-name>Mesh.040</object-name>
+		  <object-name>Mesh.044</object-name>
+		  
+   </effect>
+   
+   <effect>
+     <inherits-from>Effects/model-transparent</inherits-from>
+     <object-name>Mesh.072</object-name>
+     <object-name>Mesh.073</object-name>
+     <object-name>Mesh.071</object-name>
+	 <object-name>propdisc</object-name>
+	 <object-name>propdisc2</object-name>
+	 <object-name>Mesh.039</object-name>
+	 <object-name>Mesh.071</object-name>
+	   
+	   
+    </effect>
+
+
+   <!-- Solid Surfaces for Rembrandt rendering -->
+   <animation>
+    
+   <object-name>radar</object-name>
+		<object-name>Mesh.062</object-name>
+		<object-name>left-fuse</object-name>
+		<object-name>Mesh.087</object-name>
+		<object-name>Mesh.046</object-name>
+		<object-name>Mesh.001</object-name>
+		<object-name>Mesh.089</object-name>
+		<object-name>Mesh.049</object-name>
+		<object-name>Mesh.038</object-name>
+		<object-name>Mesh.047</object-name>
+		<object-name>Mesh.075</object-name>
+		<object-name>Mesh.020</object-name>
+		<object-name>Mesh</object-name>
+		<object-name>Mesh.066</object-name>
+		<object-name>Mesh.034</object-name>
+		<object-name>Mesh.050</object-name>
+		<object-name>Mesh.030</object-name>
+        <object-name>Mesh.035</object-name>
+		<object-name>Mesh.036</object-name>
+		<object-name>right-fuse</object-name>
+		<object-name>Mesh.001</object-name>
+		<object-name>Intake.004</object-name>
+		<object-name>Mesh.031</object-name>
+		<object-name>Mesh.078</object-name>
+		<object-name>Mesh.059</object-name>
+		<object-name>Mesh.096</object-name>
+		<object-name>Mesh.053</object-name>
+		<object-name>Mesh.042</object-name>
+		<object-name>Mesh.043</object-name>
+		<object-name>Mesh.025</object-name>
+		<object-name>Mesh.027</object-name>
+		<object-name>Mesh.033</object-name>
+		<object-name>Mesh.049</object-name>
+        <object-name>Mesh.058</object-name>
+		
+    </animation>
+
+  
+  
+  
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -1.3 </x-m>
+      <y-m>  -0.05 </y-m>
+      <z-m>  2.05 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   2 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  -7.3 </x-m>
+      <y-m>  -0.2 </y-m>
+      <z-m>  -1.9 </z-m>
+      <roll-deg>  0</roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <animation> 
+<type>spin</type>
+ <object-name>tailrotor</object-name>
+ <property>/rotors/tail/rpm</property>
+ <center>
+  <x-m>15.47</x-m>
+  <y-m>0.0</y-m>
+  <z-m>3.21</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+
+</animation> 
+  
+  <!-- Interior -->
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotation de la roue avant en fonction de la gouverne de direction
+  <animation>
+    <name>EnsembleRoueAvant</name>
+    <object-name>roueA</object-name>
+    <object-name>axeAH</object-name>
+    <object-name>axeAB</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EnsembleRoueAvant</object-name>
+    <property>/controls/flight/rudder</property>
+    <factor> 30.0 </factor>
+    <center>
+      <x-m> -3.465 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.886 </z-m>
+    </center>
+    <axis>
+      <x>  0.000 </x>
+      <y>  0.000 </y>
+      <z> -1.000 </z>
+    </axis>
+  </animation> -->
+
+  <!-- Compression
+  <animation>
+    <name>RoueAvant</name>
+    <object-name>roueA</object-name>
+    <object-name>axeAB</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RoueAvant</object-name>
+    <property>/gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.000 </ind><dep> -0.02 </dep></entry>
+      <entry><ind> 0.040 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.000 </ind><dep>  0.07 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z> 1.0 </z>
+    </axis>
+  </animation>
+ 
+  <animation>
+    <name>RoueGauche</name>
+    <object-name>roueG</object-name>
+    <object-name>axeG1</object-name>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>RoueGauche</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.000 </ind><dep>   5 </dep></entry>
+      <entry><ind> 0.050 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1.000 </ind><dep> -15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  0.784 </x-m>
+      <y-m> -1.000 </y-m>
+      <z-m> -0.845 </z-m>
+    </center>
+    <axis>
+      <x> 0.0 </x>
+      <y> 1.0 </y>
+      <z> 0.0 </z>
+    </axis>
+  </animation>
+ 
+  <animation>
+    <type>translate</type>
+    <object-name>axeG3</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.000 </ind><dep> -0.01 </dep></entry>
+      <entry><ind> 0.050 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.000 </ind><dep>  0.06 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z> 1.0 </z>
+    </axis>
+  </animation>
+ 
+  <animation>
+    <name>RoueDroite</name>
+    <object-name>roueD</object-name>
+    <object-name>axeD1</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RoueDroite</object-name>
+    <property>/gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.000 </ind><dep>   5 </dep></entry>
+      <entry><ind> 0.050 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1.000 </ind><dep> -15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  0.784 </x-m>
+      <y-m> -1.000 </y-m>
+      <z-m> -0.845 </z-m>
+    </center>
+    <axis>
+      <x> 0.0 </x>
+      <y> 1.0 </y>
+      <z> 0.0 </z>
+    </axis>
+  </animation>
+ 
+  <animation>
+    <type>translate</type>
+    <object-name>axeD3</object-name>
+    <property>/gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.000 </ind><dep> -0.01 </dep></entry>
+      <entry><ind> 0.050 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.000 </ind><dep>  0.06 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z> 1.0 </z>
+    </axis>
+  </animation> -->
+ 
+  <!-- Rotation des roues lors du roulage
+  <animation>
+    <type>spin</type>
+    <object-name>roueA</object-name>
+    <property>/gear/gear[0]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -3.353 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.299 </z-m>
+    </center>
+    <axis>
+      <x>  0.000 </x>
+      <y> -1.000 </y>
+      <z>  0.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG</object-name>
+    <property>/gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>  1.386 </x-m>
+      <y-m> -1.351 </y-m>
+      <z-m> -1.143 </z-m>
+    </center>
+    <axis>
+      <x>  0.000 </x>
+      <y> -1.000 </y>
+      <z>  0.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD</object-name>
+    <property>/gear/gear[2]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>  1.386 </x-m>
+      <y-m>  1.351 </y-m>
+      <z-m> -1.143 </z-m>
+    </center>
+    <axis>
+      <x>  0.000 </x>
+      <y> -1.000 </y>
+      <z>  0.000 </z>
+    </axis>
+  </animation> -->
+
+  <!-- Effets lumineux -->
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m> 9.25 </x-m>
+      <y-m> -0.1 </y-m>
+      <z-m> 2.0 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m>  -0.38 </x-m>
+      <y-m> -1.5 </y-m>
+      <z-m>  0.55</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/GreenLight.xml</path>
+    <offsets>
+      <x-m>  -0.38 </x-m>
+      <y-m> 1.48 </y-m>
+      <z-m>  0.55</z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+      <x-m>  -0.0 </x-m>
+      <y-m> -1.58 </y-m>
+      <z-m>  0.55</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+       <x-m>  -0.0 </x-m>
+      <y-m> 1.55 </y-m>
+      <z-m>  0.55</z-m>
+    </offsets>
+  </model>
+  
+  
+  <!-- Taxi light cone -->  
+  <model>
+    <path>Aircraft/AH-64_Apache/Models/lights/landinglight.xml</path>
+    <name>NoseGearLandinglightL</name>     
+    <offsets>
+      <x-m> -4.569 </x-m>
+      <y-m> 0.5 </y-m>
+      <z-m> -1.0 </z-m>
+      <pitch-deg>  -15 </pitch-deg>
+      <heading-deg> 0 </heading-deg>     
+    </offsets>
+  </model>
+
+  
+  
+  <model>
+    <name>Taxi-Light-Left</name>
+    <path>Aircraft/AH-64_Apache/Models/lights/light-cone.xml</path>
+    <offsets>
+      <x-m> -4.532 </x-m>
+      <y-m> 0.5 </y-m>
+      <z-m> -1.0 </z-m>
+      <pitch-deg>-15.000 </pitch-deg>
+      <heading-deg>  0.000 </heading-deg>
+    </offsets>
+  </model>
+
+ 
+
+  <animation>
+    <type>select</type>
+    <object-name>Taxi-Light-Left</object-name>
+    <object-name>NoseGearLandinglightL</object-name>     
+      
+    <condition>
+      <equals>
+        <property>controls/switches/landing-light</property>
+        <value> 1 </value>
+      </equals>
+    </condition>
+  </animation> 
+  
+
+  <!-- parts invisible from internally -->
+
+    <animation>
+        <type>select</type>
+        <object-name>Mesh.046</object-name>
+		<object-name>Mesh.040</object-name>
+		<object-name>Mesh.039</object-name>
+		<object-name>Mesh.045</object-name>
+		
+    <condition>
+    <not>
+      <property>sim/current-view/internal</property>
+    </not>
+    </condition>
+    </animation>	
+	
+	<animation>
+    <type>rotate</type>
+    <object-name>Cannon</object-name>
+    <property>sim/multiplay/generic/float[10]</property>
+
+    <center>
+      <x-m>  -4.4379</x-m>
+      <y-m> -0.0226 </y-m>
+      <z-m> -0.0696 </z-m>
+    </center>
+    <axis>
+      <x> 0.0 </x>
+      <y> 0.0 </y>
+      <z> 1.0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Cannon</object-name>
+    <property>sim/multiplay/generic/float[11]</property>
+    <center>
+      <x-m>  -4.4379</x-m>
+      <y-m> -0.0226 </y-m>
+      <z-m> -0.0696 </z-m>
+    </center>
+    <axis>
+      <x> 0.0 </x>
+      <y> 1.0 </y>
+      <z> 0.0 </z>
+    </axis>
+  </animation>
+  
+  
+</PropertyList>
+

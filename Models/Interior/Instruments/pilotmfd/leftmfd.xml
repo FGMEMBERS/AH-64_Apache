@@ -1,0 +1,28 @@
+<PropertyList> 
+
+
+
+<model> 
+<name>Pilot-left-mfd</name> 
+<path>Aircraft/AH-64_Apache/Models/Interior/Instruments/pilotmfd/leftmfd.ac</path>  
+<offsets> 
+<x-m>0.0</x-m> 
+<y-m>0.0</y-m> 
+<z-m>0.0</z-m> 
+<pitch-deg>0</pitch-deg> 
+</offsets> 
+</model> 
+
+ <model>
+    <path>Aircraft/AH-64_Apache/Models/Interior/Instruments/pilotmfd/terrain-map-pixel.xml</path>
+	<offsets>
+      <x-m>0</x-m>
+      <y-m>0 </y-m>
+      <z-m>0</z-m>
+	  <pitch-offset>0</pitch-offset>
+    </offsets>
+  </model>
+
+
+</PropertyList>
+
